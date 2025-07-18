@@ -1,0 +1,522 @@
+/* Projects.css */
+.projects {
+  padding: 4rem 0;
+  background: rgba(26, 26, 46, 0.3);
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skills-section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.skills-section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  color: #e4e4e7;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  color: #e4e4e7;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(167, 139, 250, 0.1); /* Changed to a78bfa */
+  border-color: rgba(167, 139, 250, 0.3); /* Changed to a78bfa */
+  transform: translateY(-2px);
+}
+
+.project-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #a78bfa16;
+  border-color: #a78bfa28;
+  color: #a78bfa;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 380px); /* Fixed column width instead of flexible */
+  gap: 2rem;
+  max-width: 1200px; /* Match the carousel max-width */
+  margin: 0 auto; /* Center the grid */
+  justify-content: center; /* Center items when fewer than expected */
+}
+
+/* Ensure filtered projects maintain consistent sizing */
+.projects-grid .project-item {
+  width: 100%;
+  min-height: 450px; /* Same as carousel items */
+  max-width: 380px; /* Limit max width to prevent stretching */
+}
+
+.projects-carousel {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 0; /* Remove padding since buttons will be overlaid */
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 1rem 0; /* Reduced vertical padding */
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-slide .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; /* Reduced gap */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 7rem; /* Increased padding from 6rem to 7rem for better button clearance */
+}
+
+/* Ensure project items in carousel have consistent sizing */
+.carousel-slide .project-item {
+  width: 100%;
+  min-height: 450px; /* Increased to accommodate larger image with padding */
+  max-width: none;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #a78bfa;
+}
+
+.project-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+  position: relative;
+  height: 200px; 
+  margin: 1rem; 
+  margin-bottom: 0.5rem; 
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px; 
+  background: rgba(255, 255, 255, 0.03); 
+  box-shadow: 
+    0 0 20px rgba(167, 139, 250, 0.4), 
+    inset 0 0 10px rgba(167, 139, 250, 0.2); 
+  border-color: rgba(167, 139, 250, 0.5); 
+  transition: all 0.3s ease;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 8px; 
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-item:hover .project-image {
+  box-shadow: 
+    0 0 20px rgba(167, 139, 250, 0.4), 
+    inset 0 0 10px rgba(167, 139, 250, 0.2); 
+  border-color: rgba(167, 139, 250, 0.5); 
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: #a78bfa26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-item:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay .project-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.project-link {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a78bfa;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding-bottom: 0.5rem;
+}
+
+.project-link:hover {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.3);
+  transform: translateY(-2px);
+  color: #a78bfa;
+}
+
+.project-content {
+  padding: 0 1rem 1rem 1rem; /* Removed top padding since image has margin */
+  text-align: center;
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem; /* Reduced from 0.75rem */
+  color: #e4e4e7;
+  text-align: center;
+}
+
+.project-content p {
+  color: #a1a1aa;
+  margin-bottom: 0.75rem; /* Reduced from 1rem */
+  line-height: 1.6;
+  text-align: center;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.75rem; /* Reduced from 1rem */
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.tech-badge {
+  background: rgba(167, 139, 250, 0.2);
+  color: #a78bfa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Category-specific tech highlighting */
+
+/* Default state - All filter selected */
+/* Game Development skills - Purple */
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.unity {
+  color: #a78bfa !important;
+  border-color: #a78bfa !important;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3), 
+              0 0 8px rgba(167, 139, 250, 0.2);
+  transform: scale(1.05);
+}
+
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.p4v {
+  color: #a78bfa !important;
+  border-color: #a78bfa !important;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3), 
+              0 0 8px rgba(167, 139, 250, 0.2);
+  transform: scale(1.05);
+}
+
+/* Development Tools skills - Blue */
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.python {
+  color: #60a5fa !important;
+  border-color: #60a5fa !important;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3), 
+              0 0 8px rgba(96, 165, 250, 0.2);
+  transform: scale(1.05);
+}
+
+/* Web Development skills - Green */
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.javascript,
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.typescript,
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.html,
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.css,
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.nodejs,
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.aws,
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.react {
+  color: #22c55e !important;
+  border-color: #22c55e !important;
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.3), 
+              0 0 8px rgba(34, 197, 94, 0.2);
+  transform: scale(1.05);
+}
+
+/* Overlapping technologies - White glow for default state */
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.csharp,
+.projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.github {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 
+              0 0 8px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Game Development - Purple */
+.filter-game-development .skill-tag.unity,
+.filter-game-development .skill-tag.csharp,
+.filter-game-development .skill-tag.p4v,
+.filter-game-development .skill-tag.github {
+  color: #a78bfa !important;
+  border-color: #a78bfa !important;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3), 
+              0 0 8px rgba(167, 139, 250, 0.2);
+  transform: scale(1.05);
+}
+
+/* Development Tools - Blue */
+.filter-development-tools .skill-tag.csharp,
+.filter-development-tools .skill-tag.github,
+.filter-development-tools .skill-tag.python {
+  color: #60a5fa !important;
+  border-color: #60a5fa !important;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3), 
+              0 0 8px rgba(96, 165, 250, 0.2);
+  transform: scale(1.05);
+}
+
+/* Web Development - Green */
+.filter-web-development .skill-tag.javascript,
+.filter-web-development .skill-tag.typescript,
+.filter-web-development .skill-tag.html,
+.filter-web-development .skill-tag.css,
+.filter-web-development .skill-tag.nodejs,
+.filter-web-development .skill-tag.node,
+.filter-web-development .skill-tag.aws,
+.filter-web-development .skill-tag.react,
+.filter-web-development .skill-tag.vite {
+  color: #22c55e !important;
+  border-color: #22c55e !important;
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.3), 
+              0 0 8px rgba(34, 197, 94, 0.2);
+  transform: scale(1.05);
+}
+
+/* Carousel Navigation Buttons - More specific selectors */
+.projects-carousel .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(167, 139, 250, 0.7) !important; /* Force override */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(167, 139, 250, 0.6) !important; /* Force override */
+  color: #ffffff !important;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  padding: 0 !important; /* Reset any padding from ProjectDetail */
+}
+
+.projects-carousel .carousel-btn:hover {
+  background: rgba(167, 139, 250, 0.95) !important; /* Force override with a78bfa */
+  border-color: rgba(167, 139, 250, 0.9) !important; /* Force override with a78bfa */
+  color: #ffffff !important;
+  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+  box-shadow: 
+    0 8px 20px rgba(167, 139, 250, 0.4), /* Ensure using a78bfa */
+    0 0 15px rgba(167, 139, 250, 0.3); /* Ensure using a78bfa */
+}
+
+.projects-carousel .carousel-btn:disabled,
+.projects-carousel .carousel-btn.disabled {
+  background: rgba(167, 139, 250, 0.2) !important; /* Force override */
+  border-color: rgba(167, 139, 250, 0.3) !important; /* Force override */
+  color: rgba(255, 255, 255, 0.4) !important;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.projects-carousel .carousel-btn:disabled:hover,
+.projects-carousel .carousel-btn.disabled:hover {
+  background: rgba(167, 139, 250, 0.2) !important; /* Force override */
+  border-color: rgba(167, 139, 250, 0.3) !important; /* Force override */
+  color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* These values are tested sadly I didn't make it so it padds margin from project cards.. */
+.projects-carousel .carousel-btn.prev {
+  left: 55px; 
+}
+
+.projects-carousel .carousel-btn.next {
+  right: 15px; 
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .carousel-slide .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 5.5rem; 
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, 350px); 
+  }
+  
+  .projects-grid .project-item {
+    max-width: 350px;
+  }
+  
+  .projects-carousel .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .projects-carousel .carousel-btn.prev {
+    left: 8px; 
+  }
+  
+  .projects-carousel .carousel-btn.next {
+    right: 8px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; 
+  }
+  
+  .projects-grid .project-item {
+    max-width: 100%; 
+  }
+  
+  .carousel-slide .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 0 4rem;
+  }
+  
+  .skills-grid {
+    gap: 0.75rem;
+  }
+  
+  .skill-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .projects-carousel .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  
+  .projects-carousel .carousel-btn.prev {
+    left: 5px; 
+  }
+  
+  .projects-carousel .carousel-btn.next {
+    right: 5px; 
+  }
+}

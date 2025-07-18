@@ -9,11 +9,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "powershell -ExecutionPolicy Bypass -File deploy-secure.ps1",
-    "test:deploy": "./test-deployment.sh",
+    "deploy": "powershell -ExecutionPolicy Bypass -File scripts/deploy-secure.ps1",
+    "test:deploy": "./scripts/test-deployment.sh",
     "test:lighthouse": "lighthouse https://d8ebcyzmxxit3.cloudfront.net --output=html --output-path=./lighthouse-report.html",
     "test:bundle": "npm run build && npx vite-bundle-analyzer dist/",
-    "setup:config": "echo 'Copy deploy-config.template.ps1 to deploy-config.ps1 and configure your AWS settings'",
+    "setup:config": "echo 'Copy scripts/deploy-config.template.ps1 to deploy-config.ps1 and configure your AWS settings'",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
@@ -25,7 +25,6 @@
     "@eslint/js": "^9.30.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.6.0",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
