@@ -115,3 +115,8 @@ portfolio-website/
     ├── tsconfig.json
     └── .gitignore
 ```
+
+## Reccomended future features
+* To omptimize performance on mobile you can simply make it so the display mode for the project is one at a time like the filters.
+* The UX for the experience is kind of not fitting could test using more transparency and darker
+* Might want to center tech tags on feature projects
