@@ -54,18 +54,19 @@ const Hero: React.FC = () => {
         {/* Stats and Featured Project Section - stacked vertically */}
         <div className="hero-right-section">
           <div className="hero-stats">
-            <div className="stat-card">
-              <div className="stat-number">2+</div>
+
               <div className="stat-label">Years of Experience</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">5+</div>
+              <div className="stat-number">2+</div>
+              
+
               <div className="stat-label">Projects Completed</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">1</div>
+              <div className="stat-number">5+</div>
+              
+
               <div className="stat-label">Published Title</div>
-            </div>
+              <div className="stat-number">1</div>
+              
+
           </div>
           
           <div className="featured-projects">
