@@ -67,13 +67,13 @@
   display: flex;
   flex-direction: column; /* Stack vertically to align with featured project */
   gap: 1rem;
-  margin-bottom: 0; /* Remove margin since we're using gap in parent */
+  margin-bottom: 0; 
 }
 
 .stat-card {
-  background: rgba(139, 206, 250, 0.1); /* Changed to a78bfa */
+  background: rgba(139, 206, 250, 0.1); 
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(167, 139, 250, 0.2); /* Changed to a78bfa */
+  border: 1px solid rgba(167, 139, 250, 0.2); 
   border-radius: 12px;
   padding: 1.5rem 1rem;
   text-align: center;
@@ -83,24 +83,29 @@
 
 .stat-card:hover {
   transform: translateY(-2px);
-  background: rgba(139, 196, 250, 0.15); /* Changed to a78bfa */
-  border-color: rgba(139, 202, 250, 0.4); /* Changed to a78bfa */
+  background: rgba(139, 196, 250, 0.15); 
+  border-color: rgba(139, 202, 250, 0.4); 
 }
 
 .stat-number {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);    
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0), 
+              0 0 8px rgba(255, 255, 255, 0);
+  text-align: center;
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
-  font-size: 0.9rem;
-  color: #d4d4d8;
-  font-weight: 500;
+  font-size: 3rem;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  font-weight: 850;
 }
 
 .featured-projects {
@@ -135,7 +140,7 @@
 .project-card:hover {
   transform: translateY(-5px);
   background: rgba(92, 132, 243, 0.08);
-  border-color: rgba(70, 121, 248, 0.3); /* Changed to a78bfa */
+  border-color: rgba(70, 121, 248, 0.3); 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
