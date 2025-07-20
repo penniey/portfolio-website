@@ -9,6 +9,12 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const toggleDropdown = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsResumeOpen(!isResumeOpen);
+  };
+
   const scrollToSection = (sectionId: string) => {
     // Check if we're on a project detail page (path contains '/project/')
     if (location.pathname.includes('/project/')) {
@@ -32,17 +38,22 @@ const Header: React.FC = () => {
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsResumeOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    if (isResumeOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
-  }, []);
+  }, [isResumeOpen]);
 
   // Track active section on scroll
   useEffect(() => {
@@ -107,18 +118,33 @@ const Header: React.FC = () => {
           </button>
           
           <div className="resume-dropdown" ref={dropdownRef}>
+            {/* Desktop dropdown */}
             <button 
-              className="nav-link resume-btn"
-              onClick={() => setIsResumeOpen(!isResumeOpen)}
+              className="nav-link resume-btn desktop-only"
+              onClick={toggleDropdown}
+              onTouchStart={toggleDropdown}
+              type="button"
+              aria-expanded={isResumeOpen}
+              aria-haspopup="true"
             >
               Resume ▼
             </button>
+            
+            {/* Mobile direct link */}
+            <a 
+              href="/Lundell_Hugo_CV_ENG.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="nav-link mobile-only"
+            >
+              Resume
+            </a>
             {isResumeOpen && (
               <div className="dropdown-menu">
                 <div className="dropdown-section">
                   <span className="dropdown-header">English</span>
                   <a 
-                    href="/Resume_Hugo_Lundell_ENG.pdf" 
+                    href="/Lundell_Hugo_CV_ENG.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="dropdown-item"
@@ -127,8 +153,8 @@ const Header: React.FC = () => {
                     View Resume
                   </a>
                   <a 
-                    href="/Resume_Hugo_Lundell_ENG.pdf" 
-                    download="Resume_Hugo_Lundell_ENG.pdf"
+                    href="/Lundell_Hugo_CV_ENG.pdf" 
+                    download="Lundell_Hugo_CV_ENG.pdf"
                     className="dropdown-item"
                     onClick={() => setIsResumeOpen(false)}
                   >
@@ -139,7 +165,7 @@ const Header: React.FC = () => {
                 <div className="dropdown-section">
                   <span className="dropdown-header">Svenska</span>
                   <a 
-                    href="/Resume_Hugo_Lundell.pdf" 
+                    href="/SWE_Lundell_Hugo_CV.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="dropdown-item"
@@ -148,8 +174,8 @@ const Header: React.FC = () => {
                     Visa CV
                   </a>
                   <a 
-                    href="/Resume_Hugo_Lundell.pdf" 
-                    download="Resume_Hugo_Lundell.pdf"
+                    href="/SWE_Lundell_Hugo_CV.pdf" 
+                    download="SWE_Lundell_Hugo_CV.pdf"
                     className="dropdown-item"
                     onClick={() => setIsResumeOpen(false)}
                   >

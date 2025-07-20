@@ -50,21 +50,36 @@ const Hero: React.FC = () => {
             </a>
           </div>
         </div>
-
-        {/* Stats and Featured Project Section - stacked vertically */}
         <div className="hero-right-section">
           <div className="hero-stats">
-            <div className="stat-card">
-              <div className="stat-number">2+</div>
+            {/* Desktop version - no stat cards */}
+            <div className="desktop-stats">
               <div className="stat-label">Years of Experience</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">5+</div>
+              <div className="stat-number">2+</div>
+              
               <div className="stat-label">Projects Completed</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">1</div>
+              <div className="stat-number">5+</div>
+              
               <div className="stat-label">Published Title</div>
+              <div className="stat-number">1</div>
+            </div>
+
+            {/* Mobile version - with stat cards */}
+            <div className="mobile-stats">
+              <div className="stat-card">
+                <div className="stat-number">2+</div>
+                <div className="stat-label">Years of Experience</div>
+              </div>
+              
+              <div className="stat-card">
+                <div className="stat-number">5+</div>
+                <div className="stat-label">Projects Completed</div>
+              </div>
+              
+              <div className="stat-card">
+                <div className="stat-number">1</div>
+                <div className="stat-label">Published Title</div>
+              </div>
             </div>
           </div>
           

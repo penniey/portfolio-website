@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { formatDescription } from '../utils/formatDescription';
@@ -6,6 +6,12 @@ import './ProjectDetail.css';
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  useEffect(() => {
+    //Delay is needed as it might render before the route is fully loaded >:
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, 100);
+  }, [slug]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const project = projects.find(p => p.slug === slug);

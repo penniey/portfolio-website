@@ -1,10 +1,14 @@
 /* index.css - Global styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* Colors */
   --bg-primary: #0c0c0f;
-  --bg-secondary: #1a1a2e;
+  --bg-secondary: #09010a ;
   --bg-card: rgba(255, 255, 255, 0.05);
   --text-primary: #e4e4e7;
   --text-secondary: #a1a1aa;
@@ -75,12 +79,12 @@ body {
 
 /* Selection styling */
 ::selection {
-  background: rgba(167, 139, 250, 0.3); /* Changed to a78bfa */
+  background: rgba(167, 139, 250, 0.3); 
   color: var(--text-primary);
 }
 
 /* Focus styles */
 *:focus {
-  outline: 2px solid var(--accent-purple); /* Changed to use purple instead of blue */
+  outline: 2px solid var(--accent-purple); 
   outline-offset: 2px;
 }

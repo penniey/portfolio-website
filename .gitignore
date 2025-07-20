@@ -27,9 +27,23 @@ aws-config.json
 deploy-config.sh
 deploy-config.ps1
 
+# AWS deployment files and configurations
+aws-configs/
+cloudfront-*.json
+route53-*.json
+bucket-policy.json
+ssl-validation-records.json
+disable-cloudfront.json
+
 # Deployment scripts with secrets
 deploy.sh
 deploy.ps1
+deploy*.bat
+deploy*.ps1
+deploy-*.sh
+scripts/deploy-*.ps1
+scripts/deploy-*.sh
+scripts/test-deployment.sh
 
 # Editor directories and files
 .vscode/*
