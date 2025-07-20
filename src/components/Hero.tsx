@@ -93,7 +93,8 @@ const Hero: React.FC = () => {
               >
                 <div className="project-info">
                   <h4>{featuredProject.title}</h4>
-                  <p>{featuredProject.description}</p>
+                  {/* Hard coding this for now */}
+                  <p>A physics based Golf Game published on Steam!</p>
                   <div className="project-tech">
                     {featuredProject.technologies.slice(0, 3).map((tech: string) => (
                       <span key={tech} className="tech-tag">{tech}</span>
