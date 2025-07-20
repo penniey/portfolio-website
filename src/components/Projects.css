@@ -234,11 +234,13 @@
   height: 100%;
   object-fit: cover; 
   border-radius: 8px; 
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%); /* Make images grayscale by default */
 }
 
 .project-item:hover .project-image img {
   transform: scale(1.05);
+  filter: grayscale(0%); /* Return to normal color on hover */
 }
 
 .project-item:hover .project-image {
