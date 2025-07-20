@@ -1,31 +1,28 @@
 # Hugo Lundell - Portfolio Website
 
-A modern, responsive portfolio website built with React, TypeScript, and Vite. Features secure AWS deployment, dark theme design, project showcases, and professional presentation.
+A professional and responsive portfolio website built using React, HTML, TypeScript and hosted using AWS.
 
-## 🌟 Features
+##  Features
 
-- **🎨 Modern Design**: Dark theme with glassmorphism effects and smooth animations
-- **📱 Responsive**: Mobile-first design that works on all devices  
-- **⚡ Performance**: Built with Vite for fast loading and optimized builds
-- **🔒 Secure**: Production-ready with security headers and protected deployment
-- **🚀 AWS Ready**: Configured for S3 and CloudFront deployment
-- **♿ Accessible**: ARIA labels and semantic HTML for screen readers
-- **🔍 SEO Friendly**: Optimized meta tags and structure
-- **📝 TypeScript**: Full type safety throughout the application
+- **Performance**: Built with Vite for fast loading and optimized builds
+- **Secure**: Production-ready with security headers and protected deployment
+- **AWS Ready**: Configured for S3 and CloudFront deployment
+- **SEO Friendly**: Optimized meta tags and structure
+- **TypeScript**: Full type safety throughout the application
 
-## 📋 Sections
+## Sections
 
-- **🏠 Hero**: Combined introduction with featured projects carousel
-- **💼 Projects**: Skills showcase and full project portfolio with carousels
-- **📬 Contact**: Contact information, social links, and integrated footer content
-- **📄 Resume**: Dropdown with English and Swedish resume downloads
-- **🔗 Navigation**: Active section highlighting and smooth scrolling
+- **Hero**: Introduction, featured project and experience
+- **Projects**: Technocology knowledge and projects with tech tags
+- **Contact**: Contact information and social links
+- **Resume**: Resume both in English and Swedish
+- **Navigation**: UX friendly navigation header 
 
-## 🚀 Quick Start
+##  Quick Start
 
-### Prerequisites
+### Requirments
 - Node.js 18+ installed
-- npm or yarn package manager
+- npm 
 - AWS CLI (for deployment)
 
 ### Installation
@@ -48,7 +45,7 @@ npm run dev
 
 4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-## 🚀 Deployment
+## Deployment
 
 ### Local Deployment Setup
 
@@ -73,12 +70,12 @@ npm run dev
 
 ### Documentation
 
-- **📋 [Deployment Guide](docs/DEPLOYMENT.md)** - Complete AWS setup instructions
-- **🐙 [GitHub Setup](docs/GITHUB-SETUP.md)** - Repository configuration guide
-- **🔒 [Security Summary](docs/SECURITY-SUMMARY.md)** - Security features overview
-- **☁️ [AWS Setup](docs/AWS-SETUP.md)** - Detailed AWS configuration
+- **[Deployment Guide](docs/DEPLOYMENT.md)** - Complete AWS setup instructions
+- **[GitHub Setup](docs/GITHUB-SETUP.md)** - Repository configuration guide
+- **[Security Summary](docs/SECURITY-SUMMARY.md)** - Security features overview
+- **☁[AWS Setup](docs/AWS-SETUP.md)** - Detailed AWS configuration
 
-## 📜 Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
@@ -87,7 +84,7 @@ npm run dev
 - `npm run lint` - Run ESLint
 - `npm run test:deploy` - Test deployment endpoints
 
-## 📁 Project Structure
+## 📁 Project Structure (AI GENERATED but accurate structure documentation)
 
 ```
 portfolio-website/
@@ -118,3 +115,8 @@ portfolio-website/
     ├── tsconfig.json
     └── .gitignore
 ```
+
+## Reccomended future features
+* To omptimize performance on mobile you can simply make it so the display mode for the project is one at a time like the filters. [**DONE**]
+* The UX for the experience is kind of not fitting could test using more transparency and darker [**DONE**]
+* Might want to center tech tags on feature projects
