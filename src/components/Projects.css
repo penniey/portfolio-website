@@ -368,7 +368,7 @@
   transform: scale(1.05);
 }
 
-/* Web Development skills - Green */
+/* Web Development skills - Pink */
 .projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.javascript,
 .projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.typescript,
 .projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.html,
@@ -376,11 +376,11 @@
 .projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.nodejs,
 .projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.aws,
 .projects-container:not(.filter-game-development):not(.filter-development-tools):not(.filter-web-development) .skill-tag.react {
-  color: #22c55e !important;
-  border-color: #22c55e !important;
-  text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
-  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.3), 
-              0 0 8px rgba(34, 197, 94, 0.2);
+  color: #e73bed !important;
+  border-color: #e73bed !important;
+  text-shadow: 0 0 8px rgba(186, 34, 197, 0.6);
+  box-shadow: 0 0 0 1px rgba(197, 34, 197, 0.3), 
+              0 0 8px rgba(197, 34, 173, 0.2);
   transform: scale(1.05);
 }
 
@@ -420,7 +420,7 @@
   transform: scale(1.05);
 }
 
-/* Web Development - Green */
+/* Web Development - Pink */
 .filter-web-development .skill-tag.javascript,
 .filter-web-development .skill-tag.typescript,
 .filter-web-development .skill-tag.html,
@@ -430,11 +430,11 @@
 .filter-web-development .skill-tag.aws,
 .filter-web-development .skill-tag.react,
 .filter-web-development .skill-tag.vite {
-  color: #22c55e !important;
-  border-color: #22c55e !important;
-  text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
-  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.3), 
-              0 0 8px rgba(34, 197, 94, 0.2);
+  color: #e73bed !important;
+  border-color: #e73bed !important;
+  text-shadow: 0 0 8px rgba(186, 34, 197, 0.6);
+  box-shadow: 0 0 0 1px rgba(197, 34, 197, 0.3), 
+              0 0 8px rgba(197, 34, 173, 0.2);
   transform: scale(1.05);
 }
 
