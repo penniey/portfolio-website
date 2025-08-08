@@ -116,7 +116,7 @@ const Projects: React.FC = () => {
                 )}
                 <div 
                   className="carousel-track"
-                  style={{ transform: `translateX(-${(currentProjectIndex / 3) * 100}%)` }}
+                  style={{ transform: `translateX(-${(currentProjectIndex / 3) * 103.5}%)` }} //This value is tested so the arrows are correctly positioned.
                 >
                   {Array.from({ length: Math.ceil(filteredProjects.length / 3) }, (_, slideIndex) => (
                     <div key={slideIndex} className="carousel-slide">
@@ -131,11 +131,6 @@ const Projects: React.FC = () => {
                               <div className="project-content">
                                 <h3>{project.title}</h3>
                                 <p>{project.description}</p>
-                                <div className="project-technologies">
-                                  {project.technologies.map(tech => (
-                                    <span key={tech} className="tech-badge">{tech}</span>
-                                  ))}
-                                </div>
                                 <div className="project-links">
                                   {project.githubUrl && (
                                     <a 
@@ -207,11 +202,6 @@ const Projects: React.FC = () => {
                   <div className="project-content">
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
-                    <div className="project-technologies">
-                      {project.technologies.map(tech => (
-                        <span key={tech} className="tech-badge">{tech}</span>
-                      ))}
-                    </div>
                     <div className="project-links">
                       {project.githubUrl && (
                         <a 
@@ -269,11 +259,6 @@ const Projects: React.FC = () => {
                 <div className="project-content">
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <div className="project-technologies">
-                    {project.technologies.map(tech => (
-                      <span key={tech} className="tech-badge">{tech}</span>
-                    ))}
-                  </div>
                   <div className="project-links">{project.githubUrl && (
                       <a 
                         href={project.githubUrl} 
