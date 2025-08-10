@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import Rain from './Rain';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -15,6 +16,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="hero">
+      <Rain />
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
