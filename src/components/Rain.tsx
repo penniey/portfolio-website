@@ -14,14 +14,13 @@ const Rain: React.FC = () => {
   const [rainDrops, setRainDrops] = useState<RainDrop[]>([]);
 
   useEffect(() => {
-    const colors = ['#60a5fa', '#a78bfa', '#3b82f6', '#8b5cf6'];
+  const colors = ['#d9f99d', '#fde68a', '#fca5a5', '#fb923c'];
     const drops: RainDrop[] = [];
 
-    // Create 40 rain drops for hero section only
     for (let i = 0; i < 40; i++) {
       const x = Math.random() * 100;
       const color = colors[Math.floor(Math.random() * colors.length)];
-      const duration = 2 + Math.random() * 2; // 2-4s duration
+      const duration = 2 + Math.random() * 2; 
       const delay = Math.random() * 4;
 
       drops.push({
