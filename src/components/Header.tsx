@@ -132,7 +132,7 @@ const Header: React.FC = () => {
             
             {/* Mobile direct link */}
             <a 
-              href="/Lundell_Hugo_CV_ENG.pdf" 
+              href="/CV ENG.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="nav-link mobile-only"
@@ -144,7 +144,7 @@ const Header: React.FC = () => {
                 <div className="dropdown-section">
                   <span className="dropdown-header">English</span>
                   <a 
-                    href="/Lundell_Hugo_CV_ENG.pdf" 
+                    href="/CV ENG.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="dropdown-item"
@@ -153,8 +153,8 @@ const Header: React.FC = () => {
                     View Resume
                   </a>
                   <a 
-                    href="/Lundell_Hugo_CV_ENG.pdf" 
-                    download="Lundell_Hugo_CV_ENG.pdf"
+                    href="/CV ENG.pdf" 
+                    download="CV ENG.pdf"
                     className="dropdown-item"
                     onClick={() => setIsResumeOpen(false)}
                   >
@@ -165,7 +165,7 @@ const Header: React.FC = () => {
                 <div className="dropdown-section">
                   <span className="dropdown-header">Svenska</span>
                   <a 
-                    href="/SWE_Lundell_Hugo_CV.pdf" 
+                    href="/CV Svenska.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="dropdown-item"
@@ -174,8 +174,8 @@ const Header: React.FC = () => {
                     Visa CV
                   </a>
                   <a 
-                    href="/SWE_Lundell_Hugo_CV.pdf" 
-                    download="SWE_Lundell_Hugo_CV.pdf"
+                    href="/CV Svenska.pdf" 
+                    download="CV Svenska.pdf"
                     className="dropdown-item"
                     onClick={() => setIsResumeOpen(false)}
                   >
