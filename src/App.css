@@ -1,15 +1,59 @@
-/* App.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Custom Scrollbar - Replacing TracingBeam */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.6);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    #facc15 0%,
+    #f59e0b 50%,
+    #d97706 100%
+  );
+  border-radius: 10px;
+  box-shadow:
+    0 0 10px rgba(250, 204, 21, 0.5),
+    inset 0 0 6px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    #fde047 0%,
+    #f59e0b 50%,
+    #d97706 100%
+  );
+  box-shadow:
+    0 0 15px rgba(250, 204, 21, 0.75),
+    inset 0 0 8px rgba(255, 255, 255, 0.2);
+  transform: scaleX(1.2);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(17, 17, 17, 0.6);
+}
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 rgba(17, 17, 17, 0.6);
+}
+
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-primary);
   line-height: 1.6;
-  color: #e4e4e7;
-  background: linear-gradient(135deg, #0c0c0f 0%, #09010a 100%);
+  color: #f5f5f5;
+  background: linear-gradient(135deg, #050505 0%, #111111 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -36,7 +80,7 @@ html {
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  background: linear-gradient(135deg, #facc15, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,7 +88,7 @@ html {
 
 /* Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  background: linear-gradient(135deg, #facc15, #f59e0b);
   color: white;
   padding: 12px 24px;
   border: none;
@@ -59,12 +103,12 @@ html {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(167, 139, 250, 0.3); 
+  box-shadow: 0 10px 25px rgba(250, 204, 21, 0.35);
 }
 
 .btn-primary-blue {
-  background: linear-gradient(135deg, #60a5fa, #3b82f6); 
-  color: white;
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  color: var(--bg-primary);
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
@@ -78,14 +122,14 @@ html {
 
 .btn-primary-blue:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3); 
+  box-shadow: 0 10px 25px rgba(250, 204, 21, 0.35);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #e4e4e7;
+  color: #f5f5f5;
   padding: 12px 24px;
-  border: 2px solid #374151;
+  border: 2px solid #facc15;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
@@ -96,16 +140,16 @@ html {
 }
 
 .btn-secondary:hover {
-  border-color: #a78bfa; 
-  background: rgba(167, 139, 250, 0.1); 
+  border-color: #f59e0b;
+  background: rgba(250, 204, 21, 0.12);
   transform: translateY(-2px);
 }
 
 /* Glass effect */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(250, 204, 21, 0.04);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(250, 204, 21, 0.18);
   border-radius: 12px;
 }
 
