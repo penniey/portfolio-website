@@ -1,10 +1,8 @@
-/* Projects.css */
 .projects {
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 6rem 0 4rem;
-  /* Removed background to inherit from body */
   position: relative;
 }
 
@@ -19,11 +17,11 @@
 .section-title {
   position: relative;
   margin-bottom: 3rem;
-  color: #e4e4e7;
+  color: var(--text-primary);
   text-shadow: 
-    0 0 5px rgba(167, 139, 250, 0.6),
-    0 0 10px rgba(167, 139, 250, 0.4),
-    0 0 15px rgba(167, 139, 250, 0.2);
+    0 0 5px rgba(250, 204, 21, 0.6),
+    0 0 10px rgba(245, 158, 11, 0.45),
+    0 0 15px rgba(217, 119, 6, 0.25);
 }
 
 .section-title::after {
@@ -36,12 +34,12 @@
   height: 2px;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(167, 139, 250, 0.6) 20%, 
-    rgba(96, 165, 250, 0.8) 50%, 
-    rgba(167, 139, 250, 0.6) 80%, 
+    rgba(250, 204, 21, 0.6) 20%, 
+    rgba(245, 158, 11, 0.85) 50%, 
+    rgba(250, 204, 21, 0.6) 80%, 
     transparent 100%
   );
-  box-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
 }
 
 .skills-section {
@@ -52,7 +50,7 @@
 .skills-section h3 {
   font-size: 1.75rem;
   margin-bottom: 2rem;
-  color: #e4e4e7;
+  color: var(--text-primary);
 }
 
 .skills-grid {
@@ -64,20 +62,21 @@
 }
 
 .skill-tag {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(250, 204, 21, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 0.75rem 1.5rem;
-  color: #e4e4e7;
+  color: var(--text-primary);
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .skill-tag:hover {
-  background: rgba(167, 139, 250, 0.1); 
-  border-color: rgba(167, 139, 250, 0.3); 
+  background: rgba(245, 158, 11, 0.2); 
+  border-color: rgba(245, 158, 11, 0.4); 
   transform: translateY(-2px);
+  color: var(--accent-blue);
 }
 
 .project-filters {
@@ -90,8 +89,8 @@
 
 .filter-btn {
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  color: #a1a1aa;
+  border: 2px solid rgba(250, 204, 21, 0.25);
+  color: var(--text-secondary);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 500;
@@ -101,9 +100,95 @@
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: #a78bfa16;
-  border-color: #a78bfa28;
-  color: #a78bfa;
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: var(--accent-blue);
+}
+
+/* Filter button palettes */
+.filter-btn.filter-all {
+  border-color: rgba(245, 158, 11, 0.45);
+  color: var(--accent-blue);
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.2),
+              0 0 10px rgba(245, 158, 11, 0.15);
+}
+
+.filter-btn.filter-all:hover,
+.filter-btn.filter-all.active {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: var(--accent-blue);
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.4),
+              0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+.filter-btn.filter-game-development {
+  background: rgba(117, 166, 68, 0.08);
+  border-color: rgba(117, 166, 68, 0.5);
+  color: #d9f99d;
+  box-shadow: 0 0 0 1px rgba(117, 166, 68, 0.2),
+              0 0 10px rgba(117, 166, 68, 0.15);
+}
+
+.filter-btn.filter-game-development:hover,
+.filter-btn.filter-game-development.active {
+  background: rgba(117, 166, 68, 0.2);
+  border-color: rgba(117, 166, 68, 0.65);
+  color: #f0fdf4;
+  box-shadow: 0 0 0 1px rgba(117, 166, 68, 0.35),
+              0 0 12px rgba(117, 166, 68, 0.4);
+}
+
+.filter-btn.filter-tools-development {
+  background: rgba(217, 88, 13, 0.08);
+  border-color: rgba(217, 88, 13, 0.5);
+  color: #fb923c;
+  box-shadow: 0 0 0 1px rgba(217, 88, 13, 0.2),
+              0 0 10px rgba(217, 88, 13, 0.15);
+}
+
+.filter-btn.filter-tools-development:hover,
+.filter-btn.filter-tools-development.active {
+  background: rgba(217, 88, 13, 0.2);
+  border-color: rgba(217, 88, 13, 0.65);
+  color: #ffedd5;
+  box-shadow: 0 0 0 1px rgba(217, 88, 13, 0.35),
+              0 0 12px rgba(217, 88, 13, 0.4);
+}
+
+.filter-btn.filter-web-development {
+  background: rgba(214, 188, 67, 0.08);
+  border-color: rgba(214, 188, 67, 0.5);
+  color: #fde68a;
+  box-shadow: 0 0 0 1px rgba(214, 188, 67, 0.2),
+              0 0 10px rgba(214, 188, 67, 0.15);
+}
+
+.filter-btn.filter-web-development:hover,
+.filter-btn.filter-web-development.active {
+  background: rgba(214, 188, 67, 0.2);
+  border-color: rgba(214, 188, 67, 0.65);
+  color: #fef9c3;
+  box-shadow: 0 0 0 1px rgba(214, 188, 67, 0.35),
+              0 0 12px rgba(214, 188, 67, 0.4);
+}
+
+.filter-btn.filter-hobby {
+  background: rgba(115, 7, 7, 0.08);
+  border-color: rgba(115, 7, 7, 0.5);
+  color: #fca5a5;
+  box-shadow: 0 0 0 1px rgba(115, 7, 7, 0.2),
+              0 0 10px rgba(115, 7, 7, 0.15);
+}
+
+.filter-btn.filter-hobby:hover,
+.filter-btn.filter-hobby.active {
+  background: rgba(115, 7, 7, 0.2);
+  border-color: rgba(115, 7, 7, 0.65);
+  color: #fee2e2;
+  box-shadow: 0 0 0 1px rgba(115, 7, 7, 0.35),
+              0 0 12px rgba(115, 7, 7, 0.4);
 }
 
 .projects-grid {
@@ -112,14 +197,14 @@
   gap: 2rem;
   max-width: 1200px; 
   margin: 0 auto; 
-  justify-content: center; /* Center items when fewer than expected */
+  justify-content: center; 
 }
 
 /* Ensure filtered projects maintain consistent sizing */
 .projects-grid .project-item {
   width: 100%;
-  min-height: 450px; /* Same as carousel items */
-  max-width: 380px; /* Limit max width to prevent stretching */
+  min-height: 450px; 
+  max-width: 380px; 
   max-height: 480px;
 }
 
@@ -162,7 +247,7 @@
 /* Ensure project items in carousel have consistent sizing */
 .carousel-slide .project-item {
   width: 100%;
-  min-height: 450px; /* Increased to accommodate larger image with padding */
+  min-height: 450px; 
   max-width: none;
 }
 
@@ -178,19 +263,19 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(250, 204, 21, 0.25);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .indicator.active {
-  background: #a78bfa;
+  background: var(--accent-blue);
 }
 
 .project-item {
-  background: rgba(98, 95, 255, 0.05);
+  background: rgba(250, 204, 21, 0.07);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(92, 81, 241, 0.1);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -198,26 +283,26 @@
 
 .project-item:hover {
   transform: translateY(-5px);
-  background: rgba(92, 132, 243, 0.08);
-  border-color: rgba(70, 121, 248, 0.3);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .project-image {
   position: relative;
-  height: 160px; /* Reduced from 200px */
-  margin: 0.75rem; /* Reduced margin */ 
+  height: 160px; 
+  margin: 0.75rem; 
   margin-bottom: 0.5rem; 
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 12px; 
-  background: rgba(255, 255, 255, 0.03); 
+  background: rgba(17, 17, 17, 0.8); 
   box-shadow: 
-    0 0 20px rgba(167, 139, 250, 0.4), 
-    inset 0 0 10px rgba(167, 139, 250, 0.2); 
-  border-color: rgba(167, 139, 250, 0.5); 
+    0 0 20px rgba(245, 158, 11, 0.4), 
+    inset 0 0 10px rgba(250, 204, 21, 0.25); 
+  border-color: rgba(245, 158, 11, 0.45); 
   transition: all 0.3s ease;
 }
 
@@ -227,12 +312,12 @@
   object-fit: cover; 
   border-radius: 8px; 
   transition: transform 0.3s ease, filter 0.3s ease;
-  filter: grayscale(100%); /* Make images grayscale by default */
+  filter: grayscale(100%); 
 }
 
 .project-item:hover .project-image img {
   transform: scale(1.05);
-  filter: grayscale(0%); /* Return to normal color on hover */
+  filter: grayscale(0%); 
 }
 
 .project-overlay {
@@ -257,15 +342,15 @@
 }
 
 .project-link {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(250, 204, 21, 0.12);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #a78bfa;
-  padding: 0.5rem 0.75rem; /* More compact padding */
+  border: 1px solid var(--border-color);
+  color: var(--accent-blue);
+  padding: 0.5rem 0.75rem; 
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem; /* Slightly smaller text */
+  font-size: 0.9rem; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,83 +358,80 @@
 }
 
 .project-link:hover {
-  background: rgba(167, 139, 250, 0.1);
-  border-color: rgba(167, 139, 250, 0.3);
+  background: rgba(245, 158, 11, 0.22);
+  border-color: rgba(245, 158, 11, 0.4);
   transform: translateY(-2px);
-  color: #a78bfa;
+  color: var(--accent-blue);
 }
 
 .project-content {
-  padding: 0 1rem 0.5rem 1rem; /* Reduced bottom padding */
+  padding: 0 1rem 0.5rem 1rem; 
   text-align: center;
 }
 
 .project-content h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem; 
-  color: #e4e4e7;
-  background: linear-gradient(135deg, #e4e4e7, #60a5fa);
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 
-    0 0 8px rgba(167, 139, 250, 0.3),
-    0 0 15px rgba(167, 139, 250, 0.2);
+    0 0 8px rgba(250, 204, 21, 0.35),
+    0 0 15px rgba(245, 158, 11, 0.25);
   text-align: center;
 }
 
 .project-content p {
-  color: #a1a1aa;
-  margin-bottom: 1rem; /* Increased to create uniform spacing for links */
+  color: var(--text-secondary);
+  margin-bottom: 1rem; 
   line-height: 1.6;
   text-align: center;
 }
 
-/* Removed project-technologies section - technologies now only shown in project details */
-
 .project-links {
   display: flex;
-  gap: 0.75rem; /* Slightly reduced gap */
+  gap: 0.75rem; 
   justify-content: center;
-  margin-top: auto; /* Push to bottom */
-  padding-top: 0.5rem; /* Small top padding for separation */
+  margin-top: auto; 
+  padding-top: 0.5rem; 
 }
 
-/* .tech-badge - removed as technologies no longer displayed in project items */
 
 /* Category-specific tech highlighting */
 
 /* Default state - All filter selected */
-/* Game Development skills - Purple */
+/* Game Development skills - Verdant */
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.unity {
-  color: #a78bfa !important;
-  border-color: #a78bfa !important;
-  text-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
-  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3), 
-              0 0 8px rgba(167, 139, 250, 0.2);
+  color: #d9f99d !important;
+  border-color: rgba(117, 166, 68, 0.75) !important;
+  text-shadow: 0 0 8px rgba(117, 166, 68, 0.55);
+  box-shadow: 0 0 0 1px rgba(117, 166, 68, 0.45), 
+              0 0 8px rgba(117, 166, 68, 0.25);
   transform: scale(1.05);
 }
 
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.p4v {
-  color: #a78bfa !important;
-  border-color: #a78bfa !important;
-  text-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
-  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3), 
-              0 0 8px rgba(167, 139, 250, 0.2);
+  color: #d9f99d !important;
+  border-color: rgba(117, 166, 68, 0.75) !important;
+  text-shadow: 0 0 8px rgba(117, 166, 68, 0.55);
+  box-shadow: 0 0 0 1px rgba(117, 166, 68, 0.45), 
+              0 0 8px rgba(117, 166, 68, 0.25);
   transform: scale(1.05);
 }
 
-/* Tools Development skills - Blue */
+/* Tools Development skills - Ember */
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.python {
-  color: #60a5fa !important;
-  border-color: #60a5fa !important;
-  text-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
-  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3), 
-              0 0 8px rgba(96, 165, 250, 0.2);
+  color: #fb923c !important;
+  border-color: rgba(217, 88, 13, 0.75) !important;
+  text-shadow: 0 0 8px rgba(217, 88, 13, 0.55);
+  box-shadow: 0 0 0 1px rgba(217, 88, 13, 0.45), 
+              0 0 8px rgba(217, 88, 13, 0.25);
   transform: scale(1.05);
 }
 
-/* Web Development skills - Pink */
+/* Web Development skills - Golden */
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.javascript,
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.typescript,
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.html,
@@ -357,11 +439,11 @@
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.nodejs,
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.aws,
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.react {
-  color: #e73bed !important;
-  border-color: #e73bed !important;
-  text-shadow: 0 0 8px rgba(186, 34, 197, 0.6);
-  box-shadow: 0 0 0 1px rgba(197, 34, 197, 0.3), 
-              0 0 8px rgba(197, 34, 173, 0.2);
+  color: #fde68a !important;
+  border-color: rgba(214, 188, 67, 0.75) !important;
+  text-shadow: 0 0 8px rgba(214, 188, 67, 0.55);
+  box-shadow: 0 0 0 1px rgba(214, 188, 67, 0.45), 
+              0 0 8px rgba(214, 188, 67, 0.25);
   transform: scale(1.05);
 }
 
@@ -370,38 +452,38 @@
 .projects-container:not(.filter-game-development):not(.filter-tools-development):not(.filter-web-development):not(.filter-hobby) .skill-tag.github {
   color: #ffffff !important;
   border-color: #ffffff !important;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 
-              0 0 8px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 8px rgba(250, 250, 250, 0.5);
+  box-shadow: 0 0 0 1px rgba(250, 250, 250, 0.2), 
+              0 0 8px rgba(250, 250, 250, 0.16);
   transform: scale(1.05);
 }
 
-/* Game Development - Purple */
+/* Game Development - Verdant */
 .filter-game-development .skill-tag.unity,
 .filter-game-development .skill-tag.csharp,
 .filter-game-development .skill-tag.p4v,
 .filter-game-development .skill-tag.github {
-  color: #a78bfa !important;
-  border-color: #a78bfa !important;
-  text-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
-  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3), 
-              0 0 8px rgba(167, 139, 250, 0.2);
+  color: #d9f99d !important;
+  border-color: rgba(117, 166, 68, 0.75) !important;
+  text-shadow: 0 0 8px rgba(117, 166, 68, 0.55);
+  box-shadow: 0 0 0 1px rgba(117, 166, 68, 0.45), 
+              0 0 8px rgba(117, 166, 68, 0.25);
   transform: scale(1.05);
 }
 
-/* Tools Development - Blue */
+/* Tools Development - Ember */
 .filter-tools-development .skill-tag.csharp,
 .filter-tools-development .skill-tag.github,
 .filter-tools-development .skill-tag.python {
-  color: #60a5fa !important;
-  border-color: #60a5fa !important;
-  text-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
-  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3), 
-              0 0 8px rgba(96, 165, 250, 0.2);
+  color: #fb923c !important;
+  border-color: rgba(217, 88, 13, 0.75) !important;
+  text-shadow: 0 0 8px rgba(217, 88, 13, 0.55);
+  box-shadow: 0 0 0 1px rgba(217, 88, 13, 0.45), 
+              0 0 8px rgba(217, 88, 13, 0.25);
   transform: scale(1.05);
 }
 
-/* Web Development - Pink */
+/* Web Development - Golden */
 .filter-web-development .skill-tag.javascript,
 .filter-web-development .skill-tag.typescript,
 .filter-web-development .skill-tag.html,
@@ -411,25 +493,25 @@
 .filter-web-development .skill-tag.aws,
 .filter-web-development .skill-tag.react,
 .filter-web-development .skill-tag.vite {
-  color: #e73bed !important;
-  border-color: #e73bed !important;
-  text-shadow: 0 0 8px rgba(186, 34, 197, 0.6);
-  box-shadow: 0 0 0 1px rgba(197, 34, 197, 0.3), 
-              0 0 8px rgba(197, 34, 173, 0.2);
+  color: #fde68a !important;
+  border-color: rgba(214, 188, 67, 0.75) !important;
+  text-shadow: 0 0 8px rgba(214, 188, 67, 0.55);
+  box-shadow: 0 0 0 1px rgba(214, 188, 67, 0.45), 
+              0 0 8px rgba(214, 188, 67, 0.25);
   transform: scale(1.05);
 }
 
+/* Hobby - Crimson */
 .filter-hobby .skill-tag.github,
 .filter-hobby .skill-tag.python {
-  color: #3bedb2 !important;
-  border-color: #3bedb2 !important;
-  text-shadow: 0 0 8px rgba(34, 197, 145, 0.6);
-  box-shadow: 0 0 0 1px rgba(34, 197, 184, 0.3), 
-              0 0 8px rgba(34, 197, 165, 0.2);
+  color: #fca5a5 !important;
+  border-color: rgba(115, 7, 7, 0.75) !important;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.55);
+  box-shadow: 0 0 0 1px rgba(115, 7, 7, 0.45), 
+              0 0 8px rgba(115, 7, 7, 0.25);
   transform: scale(1.05);
 }
 
-/* Hide mobile grid on desktop */
 .mobile-all-projects {
   display: none;
 }
@@ -439,9 +521,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(167, 139, 250, 0.7) !important; /* Force override */
+  background: rgba(245, 158, 11, 0.75) !important; 
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(167, 139, 250, 0.6) !important; 
+  border: 1px solid rgba(245, 158, 11, 0.6) !important; 
   color: #ffffff !important;
   border-radius: 50%;
   width: 44px;
@@ -454,24 +536,24 @@
   align-items: center;
   justify-content: center;
   opacity: 0.8;
-  padding: 0 !important; /* Reset any padding from ProjectDetail */
+  padding: 0 !important; 
 }
 
 .projects-carousel .carousel-btn:hover {
-  background: rgba(167, 139, 250, 0.95) !important; 
-  border-color: rgba(167, 139, 250, 0.9) !important; 
+  background: rgba(245, 158, 11, 0.95) !important; 
+  border-color: rgba(245, 158, 11, 0.9) !important; 
   color: #ffffff !important;
   transform: translateY(-50%) scale(1.1);
   opacity: 1;
   box-shadow: 
-    0 8px 20px rgba(167, 139, 250, 0.4), 
-    0 0 15px rgba(167, 139, 250, 0.3); 
+    0 8px 20px rgba(245, 158, 11, 0.35), 
+    0 0 15px rgba(245, 158, 11, 0.25); 
 }
 
 .projects-carousel .carousel-btn:disabled,
 .projects-carousel .carousel-btn.disabled {
-  background: rgba(167, 139, 250, 0.2) !important; 
-  border-color: rgba(167, 139, 250, 0.3) !important; 
+  background: rgba(250, 204, 21, 0.2) !important; 
+  border-color: rgba(250, 204, 21, 0.3) !important; 
   color: rgba(255, 255, 255, 0.4) !important;
   cursor: not-allowed;
   opacity: 0.5;
@@ -479,8 +561,8 @@
 
 .projects-carousel .carousel-btn:disabled:hover,
 .projects-carousel .carousel-btn.disabled:hover {
-  background: rgba(167, 139, 250, 0.2) !important; 
-  border-color: rgba(167, 139, 250, 0.3) !important; 
+  background: rgba(250, 204, 21, 0.2) !important; 
+  border-color: rgba(250, 204, 21, 0.3) !important; 
   color: rgba(255, 255, 255, 0.4) !important;
   transform: translateY(-50%);
   opacity: 0.5;
@@ -526,23 +608,48 @@
 }
 
 @media (max-width: 768px) {
-  /* Hide decorative line on mobile */
   .section-title::after {
     display: none;
   }
   
   .projects-container {
-    padding: 0 1.5rem; /* Increased padding from 1rem to 1.5rem */
+    padding: 0 1.5rem; 
   }
   
   .projects-grid {
     grid-template-columns: 1fr; 
-    gap: 3.5rem; /* Increased gap from 2rem to 3.5rem for better spacing */
+    gap: 3.5rem; 
   }
   
   .projects-grid .project-item {
     max-width: 100%; 
-    margin-bottom: 1.5rem; /* Additional margin for project items on mobile */
+    margin-bottom: 1.5rem; 
+    min-height: 580px; 
+  }
+  
+  /* Mobile-specific project content adjustments */
+  .project-content {
+    padding: 0 1rem 1rem 1rem; 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .project-content p {
+    margin-bottom: 0.5rem; 
+    flex-grow: 1; 
+    line-height: 1.4; 
+  }
+  
+  .project-links {
+    margin-top: auto; 
+    flex-wrap: wrap; 
+    gap: 0.5rem; 
+  }
+  
+  .project-link {
+    min-width: 80px; 
+    text-align: center;
   }
   
   /* Hide carousel on mobile and show simple grid instead */
