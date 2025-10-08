@@ -88,7 +88,7 @@ const Projects: React.FC = () => {
           {categories.map(category => (
             <button
               key={category}
-              className={`filter-btn ${filter === category ? 'active' : ''}`}
+              className={`filter-btn ${getFilterClassName(category)} ${filter === category ? 'active' : ''}`.trim()}
               onClick={() => handleFilterChange(category)}
             >
               {category}
