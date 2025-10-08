@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-import { formatDescription } from '../utils/formatDescription';
 import './ProjectDetail.css';
 
 const ProjectDetail: React.FC = () => {
@@ -15,6 +14,16 @@ const ProjectDetail: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const project = projects.find(p => p.slug === slug);
+  
+  // Utility function to format text with line breaks
+  const formatText = (text: string) => {
+    return text.split('\n').map((line, index) => (
+      <span key={index}>
+        {line}
+        {index < text.split('\n').length - 1 && <><br /><br /></>}
+      </span>
+    ));
+  };
   
   if (!project) {
     return (
@@ -78,8 +87,29 @@ const ProjectDetail: React.FC = () => {
         <div className="project-content">
           <div className="project-description">
             <h2>About This Project</h2>
-            <div className="formatted-description">
-              {formatDescription(project.detailedDescription)}
+            <p className="about-project">{project.aboutProject}</p>
+            
+            <div className="project-section">
+              <h3>Key Features</h3>
+              <ul className="features-list">
+                {project.keyFeatures.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="project-section">
+              <h3>Challenges & Solutions</h3>
+              <p className="challenges-text">{formatText(project.challenges)}</p>
+            </div>
+
+            <div className="project-section">
+              <h3>What I Learned</h3>
+              <ul className="learned-list">
+                {project.whatILearned.map((lesson, index) => (
+                  <li key={index}>{lesson}</li>
+                ))}
+              </ul>
             </div>
             
             <div className="project-technologies">
