@@ -1,20 +1,17 @@
 /* index.css - Global styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   /* Colors */
-  --bg-primary: #0c0c0f;
-  --bg-secondary: #09010a ;
-  --bg-card: rgba(255, 255, 255, 0.05);
-  --text-primary: #e4e4e7;
-  --text-secondary: #a1a1aa;
-  --accent-blue: #60a5fa;
-  --accent-purple: #a78bfa;
-  --border-color: rgba(255, 255, 255, 0.1);
+  --bg-primary: #050505;
+  --bg-secondary: #111111;
+  --bg-card: rgba(250, 204, 21, 0.06);
+  --text-primary: #f5f5f5;
+  --text-secondary: #d1d5db;
+  --accent-blue: #facc15;
+  --accent-purple: #f59e0b;
+  --border-color: rgba(250, 204, 21, 0.18);
+  --font-primary: 'Bricolage Grotesque', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -45,7 +42,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-primary);
   line-height: 1.6;
   color: var(--text-primary);
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -65,7 +62,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -79,12 +76,12 @@ body {
 
 /* Selection styling */
 ::selection {
-  background: rgba(167, 139, 250, 0.3); 
-  color: var(--text-primary);
+  background: rgba(250, 204, 21, 0.35); 
+  color: var(--bg-primary);
 }
 
 /* Focus styles */
 *:focus {
-  outline: 2px solid var(--accent-purple); 
+  outline: 2px solid var(--accent-blue); 
   outline-offset: 2px;
 }
