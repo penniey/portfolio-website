@@ -1,122 +1,54 @@
-# Hugo Lundell - Portfolio Website
+# Hugo Lundell — Portfolio
 
-A professional and responsive portfolio website built using React, HTML, TypeScript and hosted using AWS.
+The source for [penniey.com](https://penniey.com/), a dependency-free portfolio built with semantic HTML, CSS and JavaScript. The current static source replaces the outdated React/Vite version, which remains available in the Git history.
 
-##  Features
+## Features
 
-- **Performance**: Built with Vite for fast loading and optimized builds
-- **Secure**: Production-ready with security headers and protected deployment
-- **AWS Ready**: Configured for S3 and CloudFront deployment
-- **SEO Friendly**: Optimized meta tags and structure
-- **TypeScript**: Full type safety throughout the application
+- Original responsive industrial layout, with focused copy improvements
+- Dense equal-width skill grid on desktop and compact wrapping tags on mobile, with no inner skills scrollbar
+- Technology filters that reflow correctly, animate height changes smoothly, and expose their state to assistive technology
+- Reduced-motion support
+- No runtime dependencies or frontend framework
+- Node-based local server, production build and content tests
+- GitHub Actions deployment to the existing AWS S3 and CloudFront infrastructure
+- AWS OIDC authentication restricted to this repository's `main` branch; no AWS access keys stored in GitHub
 
-## Sections
+## Local development
 
-- **Hero**: Introduction, featured project and experience
-- **Projects**: Technocology knowledge and projects with tech tags
-- **Contact**: Contact information and social links
-- **Resume**: Resume both in English and Swedish
-- **Navigation**: UX friendly navigation header 
+Requires Node.js 22 or later.
 
-##  Quick Start
-
-### Requirments
-- Node.js 18+ installed
-- npm 
-- AWS CLI (for deployment)
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/penniey/portfolio-website.git
-cd portfolio-website
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
+npm ci
+npm test
 npm run dev
 ```
 
-4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+Open <http://127.0.0.1:5173>. The site is also directly usable by opening `index.html`.
+
+```bash
+npm run build    # Copy the five public files into dist/
+npm run preview  # Serve the production build locally
+```
+
+## Edit content
+
+- **`index.html`** — introduction, links and page layout
+- **`styles.css`** — original colors, typography and responsive layouts
+- **`script.js`** — project/experience content, technology data and interface behavior
+- **`Resume.pdf`**, **`P.png`** — résumé and favicon
+
+After editing, run `npm test` and check both desktop and mobile layouts before committing.
 
 ## Deployment
 
-### Local Deployment Setup
+**Every push to `main` automatically tests, builds and deploys the site.** It syncs `dist/` to `s3://penniey.com`, removes stale objects and invalidates the active CloudFront cache. `workflow_dispatch` also allows a manual deployment from `main`.
 
-1. **Configure AWS settings:**
-   ```bash
-   # Copy the template (Windows)
-   Copy-Item scripts/deploy-config.template.ps1 deploy-config.ps1
-   
-   # Copy the template (Linux/Mac)
-   cp scripts/deploy-config.template.sh deploy-config.sh
-   ```
+The active AWS resources are:
 
-2. **Edit your config file** with your actual AWS values:
-   - S3 bucket name
-   - CloudFront distribution ID
-   - AWS region
+| Setting | Value |
+| --- | --- |
+| Region | `eu-north-1` |
+| S3 bucket | `penniey.com` |
+| CloudFront distribution | `EATCGJV88ECEQ` |
 
-3. **Deploy:**
-   ```bash
-   npm run deploy
-   ```
-
-### Documentation
-
-- **[Deployment Guide](docs/DEPLOYMENT.md)** - Complete AWS setup instructions
-- **[GitHub Setup](docs/GITHUB-SETUP.md)** - Repository configuration guide
-- **[Security Summary](docs/SECURITY-SUMMARY.md)** - Security features overview
-- **☁[AWS Setup](docs/AWS-SETUP.md)** - Detailed AWS configuration
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run deploy` - Deploy to AWS (requires configuration)
-- `npm run lint` - Run ESLint
-- `npm run test:deploy` - Test deployment endpoints
-
-## 📁 Project Structure (AI GENERATED but accurate structure documentation)
-
-```
-portfolio-website/
-├── 📝 docs/                    # Documentation
-│   ├── DEPLOYMENT.md
-│   ├── GITHUB-SETUP.md
-│   ├── SECURITY-SUMMARY.md
-│   └── AWS-SETUP.md
-├── 🛠️ scripts/                # Deployment & utility scripts
-│   ├── deploy-secure.ps1
-│   ├── deploy-config.template.ps1
-│   ├── deploy-config.template.sh
-│   └── test-deployment.sh
-├── ⚙️ config/                  # Environment & config templates
-│   └── .env.example
-├── 🌐 aws-configs/            # AWS configuration files
-│   ├── cloudfront-security-headers.js
-│   ├── cloudwatch-monitoring.json
-│   └── s3-lifecycle.json
-├── 🎨 src/                     # React application source
-│   ├── components/
-│   ├── data/
-│   └── styles/
-├── 🏠 public/                  # Static assets
-└── 🔧 Root configuration files
-    ├── package.json
-    ├── vite.config.js
-    ├── tsconfig.json
-    └── .gitignore
-```
-
-## Reccomended future features
-* To omptimize performance on mobile you can simply make it so the display mode for the project is one at a time like the filters. [**DONE**]
-* The UX for the experience is kind of not fitting could test using more transparency and darker [**DONE**]
-* Might want to center tech tags on feature projects [**DONE**]
+See **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** for the one-time AWS OIDC and GitHub configuration, plus manual recovery steps.

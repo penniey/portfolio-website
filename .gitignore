@@ -1,70 +1,15 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Environment files
+node_modules/
+dist/
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env.production
-
-# AWS credentials and config
+.env.*
+!.env.example
 .aws/
-aws-config.json
-**/aws-credentials*
-deploy-config.sh
-deploy-config.ps1
-
-# AWS deployment files and configurations
-aws-configs/
-cloudfront-*.json
-route53-*.json
-bucket-policy.json
-ssl-validation-records.json
-disable-cloudfront.json
-
-# Deployment scripts with secrets
-deploy.sh
-deploy.ps1
-deploy*.bat
-deploy*.ps1
-deploy-*.sh
-scripts/deploy-*.ps1
-scripts/deploy-*.sh
-scripts/test-deployment.sh
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+*.local
+*.log
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Lighthouse reports
-lighthouse-report.html
-
-# Bundle analyzer reports
-bundle-report.html
-
-# Test results
+Thumbs.db
+.vscode/
+.idea/
+playwright-report/
 test-results/
-
-# Temporary files
-*.tmp
-*.temp
+lighthouse-report.html

@@ -1,15 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/P_Logo.png" />
-    <link rel="apple-touch-icon" href="/P_Logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hugo Lundell - Developer & Game Designer</title>
-    <meta name="description" content="Portfolio of Hugo Lundell - Full Stack Developer and Game Designer specializing in React, TypeScript, and Unity." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Lundell — Full-Stack & Game Developer</title>
+    <link rel="icon" type="image/png" href="P.png">
+    <meta name="description" content="Portfolio of Hugo Lundell — full-stack developer, game developer and creator of developer tools.">
+    <link rel="canonical" href="https://penniey.com/">
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Intro / About Me -->
+        <section class="section intro" data-animate="slide-right">
+            <div class="section-header">
+                <span class="section-label">IDENTITY</span>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <div class="status-info">
+                        <span class="status-text">Full-Stack Developer @ VetFamily</span>
+                        <span class="status-subtext">Stockholm · Since May 2026</span>
+                    </div>
+                </div>
+            </div>
+            <h1 class="name">Hugo Lundell</h1>
+            <p class="tagline">Full-Stack Developer · Game & Tools Builder</p>
+            <p class="bio">
+                Full-stack developer in Stockholm building data integrations at VetFamily. I also ship games
+                and developer tools, with a particular interest in optimization and interactive systems.
+            </p>
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="stat-value">8</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Years Coding</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Games Published</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section class="section links" data-animate="slide-left">
+            <div class="section-header">
+                <span class="section-label">CONNECTIONS</span>
+            </div>
+            <div class="links-grid">
+                <a href="https://github.com/penniey" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </div>
+                    <div class="link-content">
+                        <span class="link-name">GitHub</span>
+                        <span class="link-handle">@penniey</span>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/hugo-lundell-b4b268373/" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </div>
+                    <div class="link-content">
+                        <span class="link-name">LinkedIn</span>
+                        <span class="link-handle">Hugo Lundell</span>
+                    </div>
+                </a>
+                <a href="mailto:hugo2@boreback.com" class="link-card">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="link-content">
+                        <span class="link-name">Email</span>
+                        <span class="link-handle">hugo2@boreback.com</span>
+                    </div>
+                </a>
+                <a href="Resume.pdf" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14,2 14,8 20,8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10,9 9,9 8,9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="link-content">
+                        <span class="link-name">Resume</span>
+                        <span class="link-handle">PDF document</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills & Experience Row -->
+        <div class="skills-experience-row" data-animate="fade-in">
+            <section class="section skills">
+                <div class="section-header">
+                    <span class="section-label">SKILLS</span>
+                </div>
+                <div class="skills-filter" role="group" aria-label="Filter skills">
+                    <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" type="button" data-filter="game" aria-pressed="false">Game Dev</button>
+                    <button class="filter-btn" type="button" data-filter="cloud" aria-pressed="false">Cloud</button>
+                    <button class="filter-btn" type="button" data-filter="software" aria-pressed="false">Software</button>
+                </div>
+                <p id="filter-status" class="sr-only" aria-live="polite">Showing all 23 skills.</p>
+                <div class="skills-grid" id="skills-grid">
+                    <!-- Skills rendered dynamically via JavaScript -->
+                </div>
+            </section>
+
+            <section class="section experience">
+                <div class="section-header">
+                    <span class="section-label">EXPERIENCE</span>
+                </div>
+                <div class="experience-list" id="experience-container">
+                    <!-- Rendered dynamically via JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects (Scrollable) -->
+        <section class="section projects" data-animate="fade-in">
+            <div class="section-header">
+                <span class="section-label">PROJECTS</span>
+                <span class="project-count">8 Total</span>
+            </div>
+            <div class="projects-scroll" id="projects-container">
+                <!-- Projects rendered dynamically via JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Background Grid Effect -->
+    <div class="bg-grid"></div>
+
+    <script src="script.js"></script>
+</body>
 </html>

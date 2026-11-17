@@ -1,0 +1,77 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import test from 'node:test';
+import vm from 'node:vm';
+
+const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+const script = await readFile(new URL('../script.js', import.meta.url), 'utf8');
+const context = {};
+vm.runInNewContext(`${script.split('document.addEventListener(')[0]}\nglobalThis.projects = projectsData; globalThis.skills = skillsData;`, context);
+
+test('page has an accurate title, description and canonical URL', () => {
+    assert.match(html, /<title>Hugo Lundell — Full-Stack & Game Developer<\/title>/);
+    assert.match(html, /<meta name="description" content="[^"]+">/);
+    assert.match(html, /<link rel="canonical" href="https:\/\/penniey\.com\/">/);
+});
+
+test('portfolio data retains all eight projects and 23 skills', () => {
+    assert.equal(context.projects.length, 8);
+    assert.equal(context.skills.length, 23);
+    assert.deepEqual([...context.projects].sort((a, b) => a.id - b.id).slice(0, 3).map((project) => project.title), ['Glorious Golf', 'ECS Navigation & Attack', 'Track Life']);
+});
+
+test('project links are real HTTPS destinations and private code is not linked', () => {
+    const links = context.projects.flatMap((project) => project.links);
+    const publicLinks = links.filter((link) => link.type !== 'private');
+    assert.equal(publicLinks.length, 7);
+    publicLinks.forEach((link) => assert.ok(link.url.startsWith('https://'), `${link.url} should use HTTPS`));
+    assert.equal(links.filter((link) => link.type === 'private').length, 1);
+    assert.match(script, /if \(link\.type === 'private'\)/);
+    assert.doesNotMatch(script, /Firefox Add-ons/);
+});
+
+test('compact skills wrap naturally and filters remove nonmatching entries', () => {
+    assert.match(css, /\.skills-grid\s*\{\s*display: grid;\s*grid-template-columns: repeat\(auto-fill, minmax\(160px, 1fr\)\);/);
+    assert.match(css, /@media \(max-width: 640px\)[\s\S]*?\.skills-grid\s*\{\s*display: flex;\s*flex-wrap: wrap;/);
+    assert.doesNotMatch(css, /\.skills-grid\s*\{[^}]*overflow-y: scroll;/);
+    assert.doesNotMatch(css, /\.experience-card\s*\{[^}]*min-height: 300px;/);
+    assert.match(css, /\.skill-item\.hidden\s*\{\s*display: none;\s*\}/);
+    assert.doesNotMatch(css, /grid-template-rows:\s*repeat\(4, 1fr\)/);
+    assert.match(script, /item\.classList\.toggle\('hidden', !isVisible\)/);
+    assert.doesNotMatch(script, /setTimeout\(\(\) => \{\s*item\.classList\.add\('hidden'\)/);
+});
+
+test('selected filter state is accessible', () => {
+    assert.match(html, /aria-label="Filter skills"/);
+    assert.match(html, /data-filter="all" aria-pressed="true"/);
+    assert.match(html, /aria-live="polite"/);
+    assert.match(script, /btn\.setAttribute\('aria-pressed', String\(isActive\)\)/);
+});
+
+test('skills grid keeps a constant height so filtering does not shift the page', () => {
+    assert.match(script, /function updateSkillsHeight\(\)/);
+    assert.match(script, /grid\.style\.minHeight = `\$\{fullHeight\}px`/);
+    assert.match(css, /\.skills-grid\s*\{[^}]*align-content: start;/);
+    assert.match(css, /\.experience-card\s*\{[^}]*flex: 1;/);
+});
+
+test('connection cards share a minimum height and equivalent content', () => {
+    assert.match(css, /\.link-card\s*\{[^}]*min-height: 76px;/);
+    assert.match(html, /<span class="link-name">Resume<\/span>\s*<span class="link-handle">PDF document<\/span>/);
+});
+
+test('known content errors stay fixed', () => {
+    assert.doesNotMatch(html, /optimzation/i);
+    assert.match(html, /<span class="stat-value">8<\/span>/);
+    assert.match(script, /database of 1,000 exercises/);
+    assert.match(script, /title: 'Portfolio Website'/);
+    assert.doesNotMatch(script, /React, TypeScript/);
+});
+
+test('local production assets are present and valid', async () => {
+    const pdf = await readFile(new URL('../Resume.pdf', import.meta.url));
+    const icon = await readFile(new URL('../P.png', import.meta.url));
+    assert.equal(pdf.subarray(0, 5).toString(), '%PDF-');
+    assert.equal(icon.subarray(1, 4).toString(), 'PNG');
+});

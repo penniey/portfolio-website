@@ -1,89 +1,69 @@
-# 🚀 AWS Deployment Guide
+# AWS deployment
 
-## Prerequisites
+The workflow in [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml) deploys successful builds from `main` to the existing `penniey.com` S3 bucket and invalidates CloudFront distribution `EATCGJV88ECEQ`.
 
-1. **AWS CLI installed and configured**
-   ```bash
-   aws configure
-   ```
+## One-time setup
 
-2. **Node.js and npm installed**
+GitHub authenticates with AWS using **OpenID Connect (OIDC)**. This avoids storing long-lived AWS credentials in the repository. The supplied CloudFormation template creates:
 
-3. **AWS S3 bucket and CloudFront distribution set up**
+1. GitHub's OIDC identity provider in IAM.
+2. A role trust restricted to `repo:penniey/portfolio-website:ref:refs/heads/main`.
+3. Permissions to modify only `s3://penniey.com` and invalidate only the portfolio's CloudFront distribution.
 
-## Quick Setup
+This requires an AWS identity with permission to create IAM resources and deploy CloudFormation stacks. It does **not** change the bucket, website files, DNS or CloudFront distribution.
 
-### 1. Configure Deployment Settings
+### 1. Create the deploy role
 
-**For Windows (PowerShell):**
+Run from the repository root using the personal AWS `penny` credentials:
+
 ```powershell
-# Copy the template
-Copy-Item scripts/deploy-config.template.ps1 deploy-config.ps1
-
-# Edit deploy-config.ps1 with your actual AWS values
+aws cloudformation deploy `
+  --stack-name penniey-portfolio-github-deploy `
+  --template-file aws/github-deploy-role.yml `
+  --capabilities CAPABILITY_NAMED_IAM
 ```
 
-**For Linux/Mac (Bash):**
-```bash
-# Copy the template
-cp scripts/deploy-config.template.sh deploy-config.sh
+### 2. Configure GitHub repository variables
 
-# Edit deploy-config.sh with your actual AWS values
+The role ARN and resource identifiers are configuration values, not passwords. Do not substitute personal access keys for the role.
+
+```powershell
+$roleArn = aws cloudformation describe-stacks `
+  --stack-name penniey-portfolio-github-deploy `
+  --query "Stacks[0].Outputs[?OutputKey=='DeployRoleArn'].OutputValue" `
+  --output text
+
+gh variable set AWS_DEPLOY_ROLE_ARN --body $roleArn --repo penniey/portfolio-website
+gh variable set AWS_REGION --body "eu-north-1" --repo penniey/portfolio-website
+gh variable set AWS_S3_BUCKET --body "penniey.com" --repo penniey/portfolio-website
+gh variable set AWS_CLOUDFRONT_DISTRIBUTION_ID --body "EATCGJV88ECEQ" --repo penniey/portfolio-website
 ```
 
-### 2. Required Configuration Values
+### 3. Deploy
 
-Edit your config file with these actual values:
-- `S3_BUCKET`: Your S3 bucket name (e.g., "my-portfolio-website")
-- `CLOUDFRONT_DISTRIBUTION_ID`: Your CloudFront distribution ID (e.g., "E1234567890ABC")
-- `CLOUDFRONT_DOMAIN`: Your CloudFront domain (e.g., "d1234567890.cloudfront.net")
-- `AWS_REGION`: Your AWS region (e.g., "us-east-1", "eu-north-1")
+Push the workflow and site to `main`, then inspect the run:
 
-### 3. Deploy Your Website
-
-Since we're using PowerShell on Windows, use the built-in deploy script:
-
-```bash
-# Deploy using npm script (uses the secure PowerShell script)
-npm run deploy
+```powershell
+gh run list --workflow deploy.yml --limit 1
+gh run watch
 ```
 
-## Environment Variables (Optional)
+The public URL is <https://penniey.com/>. CloudFront invalidations normally take a few minutes.
 
-If you need environment variables for production:
+## Recovery: manual deployment
 
-1. Copy the template:
-   ```bash
-   cp .env.example .env.production
-   ```
+Build locally with `npm run build`. The following command changes production, so inspect the local build first and use dry-run mode to review differences:
 
-2. Fill in your actual values in `.env.production`
-
-## Security Notes
-
-- ✅ AWS credentials are kept in `deploy-config.ps1` (ignored by git)
-- ✅ Templates are committed to git, actual config files are not
-- ✅ Environment files are ignored by git
-- ✅ No sensitive information is exposed in the repository
-
-## Troubleshooting
-
-### AWS CLI Not Found
-Install AWS CLI from: https://aws.amazon.com/cli/
-
-### Missing Configuration
-Ensure your config file exists and all variables are set
-
-### Build Errors
-Make sure all dependencies are installed:
-```bash
-npm install
-npm run build
+```powershell
+aws s3 sync dist s3://penniey.com --delete --dryrun
+aws s3 sync dist s3://penniey.com --delete --only-show-errors --cache-control "public,max-age=0,must-revalidate"
+aws cloudfront create-invalidation --distribution-id EATCGJV88ECEQ --paths "/*"
 ```
 
-## GitHub Deployment
+## Operational notes
 
-This setup ensures your sensitive AWS information stays secure when pushing to GitHub:
-- Configuration templates are public
-- Actual configuration files are private (ignored by git)
-- Anyone can clone and set up their own deployment
+- `--delete` means the build output is authoritative. Do not store unrelated files in the website bucket.
+- The workflow has `concurrency` enabled to prevent simultaneous deployments.
+- No deployment occurs for pull requests or non-`main` branches.
+- The CloudFormation role does not permit changes to Route 53, bucket policies, CloudFront configuration or unrelated buckets.
+- To revoke deployment access, delete the `penniey-portfolio-github-deploy` CloudFormation stack. This removes only its IAM provider and role after any active deployments finish.

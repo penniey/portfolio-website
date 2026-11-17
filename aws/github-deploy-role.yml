@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Least-privilege GitHub Actions OIDC deployment role for the Penniey portfolio.
+
+Parameters:
+  GitHubRepository:
+    Type: String
+    Default: penniey/portfolio-website
+    AllowedPattern: '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$'
+  SiteBucketName:
+    Type: String
+    Default: penniey.com
+  CloudFrontDistributionId:
+    Type: String
+    Default: EATCGJV88ECEQ
+
+Resources:
+  GitHubOidcProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+
+  GitHubDeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: penniey-portfolio-github-deploy
+      Description: Deploys penniey.com from the main branch of its GitHub repository.
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubRepository}:ref:refs/heads/main'
+      Policies:
+        - PolicyName: DeployPortfolio
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: ListSiteBucket
+                Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub 'arn:aws:s3:::${SiteBucketName}'
+                Condition:
+                  StringLike:
+                    s3:prefix: '*'
+              - Sid: WriteSiteObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                Resource: !Sub 'arn:aws:s3:::${SiteBucketName}/*'
+              - Sid: InvalidateSiteDistribution
+                Effect: Allow
+                Action: cloudfront:CreateInvalidation
+                Resource: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistributionId}'
+
+Outputs:
+  DeployRoleArn:
+    Description: Set this as the AWS_DEPLOY_ROLE_ARN GitHub repository variable.
+    Value: !GetAtt GitHubDeployRole.Arn
