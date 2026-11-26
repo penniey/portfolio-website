@@ -43,7 +43,7 @@ const skillsData = [
 // Projects Data
 const projectsData = [
     {
-        id: 1,
+        id: 2,
         title: 'Glorious Golf',
         type: 'Game Dev',
         status: 'published',
@@ -55,7 +55,7 @@ const projectsData = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         title: 'ECS Navigation & Attack',
         type: 'Game Dev',
         status: 'opensource',
@@ -67,7 +67,7 @@ const projectsData = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         title: 'YT DDL Wrapper',
         type: 'Software',
         status: 'tool',
@@ -79,7 +79,7 @@ const projectsData = [
         ]
     },
     {
-        id: 7,
+        id: 8,
         title: 'Mage Roguelike',
         type: 'Game Dev',
         status: 'school',
@@ -91,7 +91,7 @@ const projectsData = [
         ]
     },
     {
-        id: 6,
+        id: 7,
         title: 'Portfolio Website',
         type: 'Web Dev',
         status: 'live',
@@ -103,7 +103,7 @@ const projectsData = [
         ]
     },
     {
-        id: 8,
+        id: 9,
         title: 'Unity Categorization Tool',
         type: 'Tool',
         status: 'utility',
@@ -115,7 +115,7 @@ const projectsData = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         title: 'Track Life',
         type: 'Mobile',
         status: 'published',
@@ -127,7 +127,7 @@ const projectsData = [
         ]
     },
     {
-        id: 5,
+        id: 6,
         title: 'WEBP Converter',
         type: 'Extension',
         status: 'utility',
@@ -139,7 +139,7 @@ const projectsData = [
         ]
     },
     {
-        id: 9,
+        id: 1,
         title: 'Rift Thresholds',
         type: 'Web App',
         status: 'live',

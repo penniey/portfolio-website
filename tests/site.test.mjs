@@ -18,7 +18,8 @@ test('page has an accurate title, description and canonical URL', () => {
 test('portfolio data retains all nine projects and 29 skills', () => {
     assert.equal(context.projects.length, 9);
     assert.equal(context.skills.length, 29);
-    assert.deepEqual([...context.projects].sort((a, b) => a.id - b.id).slice(0, 3).map((project) => project.title), ['Glorious Golf', 'ECS Navigation & Attack', 'Track Life']);
+    assert.deepEqual([...context.projects].sort((a, b) => a.id - b.id).slice(0, 3).map((project) => project.title), ['Rift Thresholds', 'Glorious Golf', 'ECS Navigation & Attack']);
+    assert.equal(new Set(context.projects.map((project) => project.id)).size, 9);
 });
 
 test('project links are real HTTPS destinations and private code is not linked', () => {
