@@ -93,6 +93,7 @@ test('experience and résumé reflect the current full-stack and data work', asy
     assert.match(resume, /Django\/DRF/);
     assert.match(resume, /Next\.js\/React/);
     assert.match(resume, /Rift Thresholds/);
+    assert.match(resume, /\.entry-head h3/);
 });
 
 test('local production assets are present and valid', async () => {
