@@ -15,16 +15,16 @@ test('page has an accurate title, description and canonical URL', () => {
     assert.match(html, /<link rel="canonical" href="https:\/\/penniey\.com\/">/);
 });
 
-test('portfolio data retains all eight projects and 23 skills', () => {
-    assert.equal(context.projects.length, 8);
-    assert.equal(context.skills.length, 23);
+test('portfolio data retains all nine projects and 29 skills', () => {
+    assert.equal(context.projects.length, 9);
+    assert.equal(context.skills.length, 29);
     assert.deepEqual([...context.projects].sort((a, b) => a.id - b.id).slice(0, 3).map((project) => project.title), ['Glorious Golf', 'ECS Navigation & Attack', 'Track Life']);
 });
 
 test('project links are real HTTPS destinations and private code is not linked', () => {
     const links = context.projects.flatMap((project) => project.links);
     const publicLinks = links.filter((link) => link.type !== 'private');
-    assert.equal(publicLinks.length, 7);
+    assert.equal(publicLinks.length, 8);
     publicLinks.forEach((link) => assert.ok(link.url.startsWith('https://'), `${link.url} should use HTTPS`));
     assert.equal(links.filter((link) => link.type === 'private').length, 1);
     assert.match(script, /if \(link\.type === 'private'\)/);
@@ -63,10 +63,35 @@ test('connection cards share a minimum height and equivalent content', () => {
 
 test('known content errors stay fixed', () => {
     assert.doesNotMatch(html, /optimzation/i);
-    assert.match(html, /<span class="stat-value">8<\/span>/);
+    assert.match(html, /<span class="stat-value">9<\/span>/);
     assert.match(script, /database of 1,000 exercises/);
     assert.match(script, /title: 'Portfolio Website'/);
     assert.doesNotMatch(script, /React, TypeScript/);
+});
+
+test('Rift Thresholds is presented as a live web project', () => {
+    const project = context.projects.find((item) => item.title === 'Rift Thresholds');
+    assert.ok(project);
+    assert.equal(project.status, 'live');
+    assert.equal(project.links.length, 1);
+    assert.equal(project.links[0].type, 'live');
+    assert.equal(project.links[0].url, 'https://rift.penniey.com/');
+    assert.equal(project.links[0].label, 'Live Site');
+    assert.match(html, /<span class="project-count">9 Total<\/span>/);
+});
+
+test('experience and résumé reflect the current full-stack and data work', async () => {
+    assert.match(script, /warehouse ingestion and analytics workflows/);
+    assert.match(script, /AWS\/Terraform and GitHub Actions delivery/);
+    assert.ok(context.skills.some((skill) => skill.name === 'PostgreSQL'));
+    assert.ok(context.skills.some((skill) => skill.name === 'Terraform'));
+
+    const resume = await readFile(new URL('../Resume.html', import.meta.url), 'utf8');
+    assert.match(resume, /Full-Stack Developer/);
+    assert.match(resume, /May 2026/);
+    assert.match(resume, /Django\/DRF/);
+    assert.match(resume, /Next\.js\/React/);
+    assert.match(resume, /Rift Thresholds/);
 });
 
 test('local production assets are present and valid', async () => {

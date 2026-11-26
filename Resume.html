@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Lundell — Résumé</title>
+    <style>
+        :root {
+            --sage: #dce2cf;
+            --ink: #24352d;
+            --muted: #566359;
+            --line: #89957e;
+            --paper: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+
+        @page { size: A4; margin: 0; }
+
+        html, body { margin: 0; padding: 0; }
+
+        body {
+            background: #e8ebe2;
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .resume {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 58mm 1fr;
+            grid-template-rows: 43mm 1fr;
+            background: var(--paper);
+            box-shadow: 0 18px 60px rgb(36 53 45 / 0.16);
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            padding: 12mm 15mm 9mm;
+            background: var(--sage);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 29pt;
+            line-height: 1;
+            letter-spacing: 0.045em;
+            font-weight: 700;
+        }
+
+        .header p {
+            margin: 4mm 0 0;
+            color: var(--muted);
+            font-size: 10.5pt;
+            line-height: 1;
+            letter-spacing: 0.19em;
+            text-transform: uppercase;
+        }
+
+        .sidebar {
+            padding: 7mm 9mm 8mm;
+            background: var(--sage);
+        }
+
+        .sidebar section { margin-bottom: 4.5mm; }
+
+        .sidebar h2,
+        .main h2 {
+            margin: 0 0 2.4mm;
+            padding-bottom: 1.6mm;
+            border-bottom: 1px solid var(--line);
+            font-size: 9.2pt;
+            line-height: 1.15;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .sidebar p,
+        .sidebar li {
+            font-size: 7.9pt;
+            line-height: 1.48;
+        }
+
+        .sidebar p { margin: 0 0 1.4mm; }
+        .sidebar ul { margin: 0; padding-left: 3.8mm; }
+        .sidebar li { margin-bottom: 1mm; }
+        .sidebar .contact { margin-bottom: 2.2mm; overflow-wrap: anywhere; }
+
+        .main { padding: 7mm 11mm 8mm; }
+
+        .main section { margin-bottom: 3.6mm; }
+
+        .main h2 { font-size: 10pt; }
+
+        .profile {
+            margin: 0;
+            color: var(--muted);
+            font-size: 8.6pt;
+            line-height: 1.45;
+        }
+
+        .job-head,
+        .entry-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 5mm;
+        }
+
+        .job h3,
+        .entry h3 {
+            margin: 0;
+            font-size: 9.5pt;
+            line-height: 1.25;
+        }
+
+        .date,
+        .meta {
+            color: var(--muted);
+            font-size: 7.7pt;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+
+        .job .meta { margin: 1mm 0 1.8mm; }
+
+        .job ul {
+            margin: 0;
+            padding-left: 4mm;
+        }
+
+        .job li {
+            margin-bottom: 1.15mm;
+            font-size: 8.05pt;
+            line-height: 1.34;
+        }
+
+        .entry { margin-bottom: 2.6mm; break-inside: avoid; }
+        .entry:last-child { margin-bottom: 0; }
+        .entry .meta { margin: 0.7mm 0 1mm; }
+        .entry p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 7.9pt;
+            line-height: 1.36;
+        }
+
+        .compact p { font-size: 8.1pt; line-height: 1.4; }
+        .compact .meta { margin-top: 1mm; }
+
+        @media screen and (max-width: 800px) {
+            body { padding: 18px 0; }
+            .resume { transform: scale(0.78); transform-origin: top center; margin-bottom: -65mm; }
+        }
+
+        @media print {
+            html, body { width: 210mm; height: 297mm; overflow: hidden; background: var(--paper); }
+            .resume { width: 210mm; height: 297mm; min-height: 0; margin: 0; overflow: hidden; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <article class="resume" aria-label="Hugo Lundell résumé">
+        <header class="header">
+            <h1>HUGO LUNDELL</h1>
+            <p>Software Engineer</p>
+        </header>
+
+        <aside class="sidebar">
+            <section aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact</h2>
+                <p class="contact">+46 72 730 35 58</p>
+                <p class="contact"><a href="mailto:hugo2@boreback.com">hugo2@boreback.com</a></p>
+                <p class="contact">Stockholm, Sweden</p>
+                <p class="contact"><a href="https://www.penniey.com">www.penniey.com</a></p>
+                <p class="contact"><a href="https://www.linkedin.com/in/hugo-lundell-b4b268373/">linkedin.com/in/hugo-lundell-b4b268373</a></p>
+                <p class="contact"><a href="https://github.com/penniey">github.com/penniey</a></p>
+            </section>
+
+            <section aria-labelledby="stack-heading">
+                <h2 id="stack-heading">Core Stack</h2>
+                <ul>
+                    <li>Python · Django/DRF</li>
+                    <li>TypeScript · Next.js/React</li>
+                    <li>PostgreSQL · Snowflake</li>
+                    <li>AWS · Terraform · Docker</li>
+                    <li>Git · GitHub Actions · pytest</li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="game-heading">
+                <h2 id="game-heading">Game &amp; Mobile</h2>
+                <ul>
+                    <li>C# · Unity · DOTS</li>
+                    <li>Dart · Flutter · Hive</li>
+                    <li>Firebase · Riverpod</li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="tools-heading">
+                <h2 id="tools-heading">Tools</h2>
+                <ul>
+                    <li>Linux · P4V · Locust</li>
+                    <li>Nix · Git</li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="languages-heading">
+                <h2 id="languages-heading">Languages</h2>
+                <ul>
+                    <li>English — Fluent</li>
+                    <li>Swedish — Native</li>
+                    <li>Spanish — Intermediate</li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="main">
+            <section aria-labelledby="profile-heading">
+                <h2 id="profile-heading">Profile</h2>
+                <p class="profile">Software engineer experienced across full-stack product development, data-intensive APIs and cloud delivery. Builds performant, secure systems and has independently shipped games and developer tools.</p>
+            </section>
+
+            <section aria-labelledby="work-heading">
+                <h2 id="work-heading">Work Experience</h2>
+                <article class="job">
+                    <div class="job-head">
+                        <h3>Full-Stack Developer · VetFamily</h3>
+                        <span class="date">May 2026–Present</span>
+                    </div>
+                    <p class="meta">Stockholm, Sweden</p>
+                    <ul>
+                        <li>Delivered full-stack features across Django/DRF and Next.js/React, integrating PostgreSQL and Snowflake for multi-country operational workflows.</li>
+                        <li>Built warehouse ingestion and analytics refresh pipelines with workload-identity authentication, delta watermarks, audit records, unmatched-record checks and scheduled updates.</li>
+                        <li>Optimized backend queries, analytics rollups and frontend delivery; documented staging reductions from 18.8s to 1.2s for source scans and from 433 kB to 357 kB in shared JavaScript.</li>
+                        <li>Hardened tenant isolation, authorization, session/token flows, CSRF protection and content sanitization, with regression and accessibility coverage.</li>
+                        <li>Upgraded Django/DRF, migrated CI/CD and load tests to hosted runners, and reconciled Terraform with AWS ECS/RDS/S3 infrastructure.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section aria-labelledby="projects-heading">
+                <h2 id="projects-heading">Selected Projects</h2>
+                <article class="entry">
+                    <h3>High-Performance Entity Component System</h3>
+                    <p class="meta">C# · Unity DOTS · Job System · Burst Compiler</p>
+                    <p>Custom ECS for movement, pathfinding, loot and combat; ran 5,000 entities at 60+ FPS with a documented 10× improvement over the standard system.</p>
+                </article>
+                <article class="entry">
+                    <h3>Glorious Golf — Lead Developer</h3>
+                    <p class="meta">C# · Unity · P4V · JSON</p>
+                    <p>Lead developer on a physics-based game released on Steam; built gameplay, UI, Steam integration and save/load systems.</p>
+                </article>
+                <article class="entry">
+                    <h3>Rift Thresholds</h3>
+                    <p class="meta">JavaScript · Python · AWS Lambda · DynamoDB · Terraform</p>
+                    <p>Live damage/lethality calculator with SoloQ analysis and a leaderboard; serverless data workers, DynamoDB caching and Terraform-managed AWS deployment.</p>
+                </article>
+                <article class="entry">
+                    <h3>Track Life — Fitness Database &amp; Logger</h3>
+                    <p class="meta">Dart · Flutter · Hive · Firebase · Riverpod</p>
+                    <p>Offline-first workout logger with 1,000 exercises, local storage for privacy and optional cloud backup.</p>
+                </article>
+            </section>
+
+            <section class="compact" aria-labelledby="education-heading">
+                <h2 id="education-heading">Education</h2>
+                <div class="entry-head">
+                    <h3>Bachelor in Game Design &amp; Scripting</h3>
+                    <span class="date">2023–Present</span>
+                </div>
+                <p class="meta">Södertörns Högskola · Stockholm, Sweden</p>
+            </section>
+
+            <section class="compact" aria-labelledby="mentoring-heading">
+                <h2 id="mentoring-heading">Additional Experience</h2>
+                <div class="entry-head">
+                    <h3>Mentor &amp; Coach</h3>
+                    <span class="date">2021–Present</span>
+                </div>
+                <p>Helped 150+ students improve mathematics, computer science and programming skills.</p>
+            </section>
+        </main>
+    </article>
+</body>
+</html>

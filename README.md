@@ -35,7 +35,8 @@ npm run preview  # Serve the production build locally
 - **`index.html`** — introduction, links and page layout
 - **`styles.css`** — original colors, typography and responsive layouts
 - **`script.js`** — project/experience content, technology data and interface behavior
-- **`Resume.pdf`**, **`P.png`** — résumé and favicon
+- **`Resume.html`** — editable résumé source; run `powershell -ExecutionPolicy Bypass -File scripts/render-resume.ps1` to regenerate **`Resume.pdf`**
+- **`P.png`** — favicon
 
 After editing, run `npm test` and check both desktop and mobile layouts before committing.
 

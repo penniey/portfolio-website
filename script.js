@@ -23,6 +23,12 @@ const skillsData = [
     { id: 14, name: 'ECS - AWS', categories: ['cloud'], primary: false },
     { id: 15, name: 'CloudFront', categories: ['cloud'], primary: false },
     { id: 16, name: 'Django', categories: ['cloud'], primary: false },
+    { id: 24, name: 'PostgreSQL', categories: ['cloud', 'software'], primary: false },
+    { id: 25, name: 'React', categories: ['cloud', 'software'], primary: false },
+    { id: 26, name: 'Next.js', categories: ['cloud', 'software'], primary: false },
+    { id: 27, name: 'Terraform', categories: ['cloud'], primary: false },
+    { id: 28, name: 'Docker', categories: ['cloud', 'software'], primary: false },
+    { id: 29, name: 'GitHub Actions', categories: ['cloud', 'software'], primary: false },
     
     // Software Development
     { id: 17, name: 'Flutter', categories: ['software'], primary: false },
@@ -131,6 +137,18 @@ const projectsData = [
         links: [
             { type: 'firefox', url: 'https://github.com/penniey/webp-converter', label: 'GitHub' }
         ]
+    },
+    {
+        id: 9,
+        title: 'Rift Thresholds',
+        type: 'Web App',
+        status: 'live',
+        statusLabel: 'Live',
+        description: 'Damage and lethal-threshold calculator with item/rune modeling, SoloQ match analysis and a leaderboard. Built with a static JavaScript frontend, serverless Python workers, DynamoDB caching and automated AWS deployments.',
+        technologies: ['JavaScript', 'Python', 'AWS Lambda', 'DynamoDB', 'Terraform'],
+        links: [
+            { type: 'live', url: 'https://rift.penniey.com/', label: 'Live Site' }
+        ]
     }
 ];
 
@@ -143,8 +161,8 @@ const experienceData = [
         startDate: 'May 2026',
         endDate: 'Present',
         location: 'Stockholm, Sweden',
-        description: 'Full-stack development for VetFamily’s multi-country members portal, focused on Django and Python services and data integrations for users across markets.',
-        technologies: ['Django', 'Snowflake', 'Python', 'PostgreSQL']
+        description: 'Full-stack development across Django/DRF services, Next.js/React interfaces and Snowflake/PostgreSQL integrations. Built warehouse ingestion and analytics workflows, optimized query performance, strengthened access controls, and supported AWS/Terraform and GitHub Actions delivery.',
+        technologies: ['Python', 'Django', 'TypeScript', 'Next.js', 'PostgreSQL', 'Snowflake', 'AWS', 'Terraform', 'GitHub Actions']
     }
 ];
 
